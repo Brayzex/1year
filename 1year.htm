@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Anniversary</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background-color: #fdf0f5;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        h1 {
+            font-size: 3em;
+            color: #ff69b4;
+            margin: 20px 0;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .image-container img {
+            border: 3px solid #ff69b4;
+            border-radius: 10px;
+        }
+        .heart-container {
+            position: absolute;
+            bottom: 50px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+        }
+        .emojis {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .heart {
+            width: 150px;
+            height: 150px;
+            background-color: #ff69b4;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: beat 1s infinite;
+        }
+        .heart::before, .heart::after {
+            content: '';
+            width: 150px;
+            height: 150px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .heart::before {
+            top: -75px;
+            left: 0;
+        }
+        .heart::after {
+            left: 75px;
+            top: 0;
+        }
+        @keyframes beat {
+            0%, 100% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.2) rotate(-45deg); }
+        }
+        /* Glitter Effect */
+        .glitter {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 1;
+        }
+        .glitter span {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background-color: transparent;
+            border-radius: 50%;
+            animation: glitter 4s infinite;
+            opacity: 1;
+        }
+        .glitter span.gold {
+            background-color: gold;
+        }
+        .glitter span.white {
+            background-color: white;
+        }
+        .glitter span.blue {
+            background-color: lightblue;
+        }
+        @keyframes glitter {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(600px) scale(0.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>OMGG 1 YEAR</h1>
+
+    <div class="image-container">
+        <img src="heart1.jpg" alt="Love Heart 1" width="200" height="200">
+        <img src="heart2.jpg" alt="Love Heart 2" width="200" height="200">
+        <img src="heart3.jpg" alt="Love Heart 3" width="200" height="200">
+    </div>
+
+    <div class="heart-container">
+        <div class="emojis">
+            <span>🐱</span>
+            <span>🍩</span>
+        </div>
+        <div class="heart"></div>
+        <div class="emojis">
+            <span>🍩</span>
+            <span>🎂</span>
+        </div>
+    </div>
+
+    <div class="glitter">
+        <!-- Adding 50 glitter particles with mixed colors -->
+        <script>
+            const colors = ['gold', 'white', 'blue'];
+            for (let i = 0; i < 50; i++) {
+                const span = document.createElement('span');
+                span.className = colors[Math.floor(Math.random() * colors.length)];
+                span.style.left = `${Math.random() * 100}%`;
+                span.style.animationDelay = `${Math.random() * 4}s`;
+                span.style.top = `${Math.random() * -100}px`;
+                span.style.transform = `scale(${Math.random()})`;
+                document.querySelector('.glitter').appendChild(span);
+            }
+        </script>
+    </div>
+</body>
+</html>
+
+
+
